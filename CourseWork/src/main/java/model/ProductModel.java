@@ -24,6 +24,16 @@ public class ProductModel implements Serializable{
 		this.category_id = category_id;
 		this.product_img = product_img;
 	}
+	
+	
+	// database controller
+	public ProductModel(String product_name,double product_prise, String product_desc, String product_img) {
+		super();
+		this.product_name = product_name;
+		this.product_price = product_prise;
+		this.product_desc = product_desc;
+		this.product_img = product_img;
+	}
 
 
 	public int getProduct_id() {

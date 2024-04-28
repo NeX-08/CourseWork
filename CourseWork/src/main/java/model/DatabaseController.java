@@ -1,4 +1,4 @@
-package controller;
+package model;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -71,7 +71,22 @@ public class DatabaseController {
 	}
 
 	
-	public ArrayList<ProductModel> getAllProducts{
+	public ArrayList<ProductModel> getAllProducts(){
+		ArrayList<ProductModel> productList = new ArrayList<>();
+		try(Connection con = getConnection()){
+			PreparedStatement st = con.prepareStatement(StringUtils.SHOW_PRODUCTS);
+			ResultSet rs = st.executeQuery();
+			while(rs.next()) {
+				ProductModel product = new ProductModel(
+						rs.getString("product_name"),
+						rs.getDouble("product_price"),
+						rs.getString("product_desc"),
+						rs.getString("product_img"));
+				productList.add(product);
+			}
+		}catch(SQLException | ClassNotFoundException ex){
+			ex.printStackTrace();
+		}
 		
 	}
 }
