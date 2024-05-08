@@ -35,7 +35,16 @@ public class UserModel implements Serializable {
 		this.retypePassword = retypePassword;
 	}
 
-	
+	// Admin Panel
+	public UserModel(int user_id, String user_name, String gender, String email, String phoneNumber) {
+		this.user_id = user_id;
+		this.user_name = user_name;
+		this.gender = gender;
+		this.email = email;
+		this.phoneNumber = phoneNumber;
+	}
+
+
 	// getter and setter method
 	public int getUser_id() {
 		return user_id;

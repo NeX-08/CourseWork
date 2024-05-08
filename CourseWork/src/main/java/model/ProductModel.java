@@ -12,21 +12,20 @@ public class ProductModel implements Serializable{
 	private int category_id;
 	private String product_img;
 	
-	
-	public ProductModel(int product_id, String product_name, double product_price, String product_desc, String vendor,
-			int category_id, String product_img) {
+	// database controller for admin page
+	public ProductModel(int product_id, String product_name, double product_price, String vendor,
+			int category_id) {
 		super();
 		this.product_id = product_id;
 		this.product_name = product_name;
 		this.product_price = product_price;
-		this.product_desc = product_desc;
 		this.vendor = vendor;
 		this.category_id = category_id;
-		this.product_img = product_img;
+		
 	}
 	
 	
-	// database controller
+	// database controller for product page
 	public ProductModel(String product_name,double product_prise, String product_desc, String product_img) {
 		super();
 		this.product_name = product_name;
@@ -80,9 +79,6 @@ public class ProductModel implements Serializable{
 		return vendor;
 	}
 
-
-	
-	// setter method
 	public void setVendor(String vendor) {
 		this.vendor = vendor;
 	}
@@ -112,7 +108,7 @@ public class ProductModel implements Serializable{
 		return serialVersionUID;
 	}
 	
-	//Getter method
+	
 	
 	
 	

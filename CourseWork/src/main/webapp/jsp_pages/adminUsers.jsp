@@ -1,3 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@ page import = "jservlets.AdminServlet" %>
+<%@ page import = "model.UserModel"%>
+<%@ page import = "controller.DatabaseController" %>
+<%@ page import = "java.util.ArrayList" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +12,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>UI/UX</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@48,400,0,0" />
-  <link rel="stylesheet" href="../stylesheets/admin.css">
+  <link rel="stylesheet" type="text/css" href="../stylesheets/admin.css">
 </head>
 <body>
    <div class="container">
@@ -29,15 +35,15 @@
               <span class="material-symbols-sharp">grid_view </span>
               <h3>Dashbord</h3>
             </a>
-            <a href="adminUsers.html">
+            <a href="#" class="active">
               <span class="material-symbols-sharp">person_outline </span>
               <h3>Users</h3>
             </a>
-            <a href="adminOrders.html">
+            <a href="adminOrders.jsp">
               <span class="material-symbols-sharp">receipt_long </span>
               <h3>Orders</h3>
             </a>
-            <a href="#" class="active">
+            <a href="adminProducts.jsp">
               <span class="material-symbols-sharp">receipt_long </span>
               <h3>Products</h3>
             </a>
@@ -45,7 +51,7 @@
               <span class="material-symbols-sharp">report_gmailerrorred </span>
               <h3>Reports</h3>
             </a>
-            <a href="adminAddProduct.html">
+            <a href="adminAddProduct.jsp">
               <span class="material-symbols-sharp">add </span>
               <h3>Add Product</h3>
             </a>
@@ -71,26 +77,35 @@
            </div>
 
       <div class="display_table">
-         <h2>Recent Orders</h2>
+         <h2>Users</h2>
          <table> 
-            <thead>
+             <thead>
               <tr>
-                <th>Product Name</th>
-                <th>Product Number</th>
-                <th>Product Price</th>
-                <th>Vendor</th>
-                <th>Category</th>
+                <th>User Name</th>
+                <th>User ID</th>
+                <th>Gender</th>
+                <th>Email</th>
+                <th>Phone Number</th>
               </tr>
-            </thead>
-            <tbody>
-                 <tr>
-                  <td>1</td>
-                  <td>test</td>
-                  <td>1.0</td>
-                  <td>test</td>
-                  <td>1</td>
-                 </tr>
-            </tbody>
+             </thead>
+              <tbody>
+                 <% 	
+                 DatabaseController db = new DatabaseController();
+         		 ArrayList<UserModel> userList = new ArrayList<>();
+         		 userList = db.getUsers();
+                 
+                 for(UserModel user : userList) {
+                 %>
+                 <tr> 
+                 	<td><%=user.getUser_id()%></td>
+                 	<td><%=user.getUser_name()%><td>
+                 	<td><%=user.getGender()%></td>
+                 	<td><%=user.getEmail()%></td>
+ 					<td><%=user.getPhoneNumber() %></td>  
+ 					<td><button id="delete_btn">Delete</button>    
+ 				</tr>
+ 				<% } %>   
+              </tbody>
          </table>
          <a href="#">Show All</a>
       </div>

@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ page import = "jservlets.AdminServlet" %>
+<%@ page import = "model.OrderModel"%>
+<%@ page import = "controller.DatabaseController" %>
+<%@ page import = "java.util.ArrayList" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +12,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>UI/UX</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@48,400,0,0" />
-  <link rel="stylesheet" href="admin.css">
+  <link rel="stylesheet" type="text/css" href="../stylesheets/admin.css">
 </head>
 <body>
    <div class="container">
@@ -31,7 +35,7 @@
               <span class="material-symbols-sharp">grid_view </span>
               <h3>Dashbord</h3>
             </a>
-            <a href="adminUsers.html">
+            <a href="adminUsers.jsp">
               <span class="material-symbols-sharp">person_outline </span>
               <h3>Users</h3>
             </a>
@@ -39,7 +43,7 @@
               <span class="material-symbols-sharp">receipt_long </span>
               <h3>Orders</h3>
             </a>
-            <a href="adminProducts.html">
+            <a href="adminProducts.jsp">
               <span class="material-symbols-sharp">receipt_long </span>
               <h3>Products</h3>
             </a>
@@ -47,7 +51,7 @@
               <span class="material-symbols-sharp">report_gmailerrorred </span>
               <h3>Reports</h3>
             </a>
-            <a href="adminAddProduct.html">
+            <a href="adminAddProduct.jsp">
               <span class="material-symbols-sharp">add </span>
               <h3>Add Product</h3>
             </a>
@@ -72,20 +76,35 @@
              <input type="date" >
            </div>
 
-      <div class="recent_order">
+      <div class="display_table">
          <h2>Recent Orders</h2>
          <table> 
              <thead>
               <tr>
-                <th>Product Name</th>
-                <th>Product Number</th>
-                <th>Payments</th>
+                <th>Order ID</th>
+                <th>User ID</th>
+                <th>Order Date</th>
                 <th>Status</th>
+                <th></th>
               </tr>
              </thead>
               <tbody>
-                 <%  %>
-              </tbody>
+                 <% 	
+                 DatabaseController db = new DatabaseController();
+         		 ArrayList<OrderModel> orderList = new ArrayList<>();
+         		 orderList = db.getOrders();
+                 
+                 for(OrderModel order : orderList) {
+                 %>
+                 <tr> 
+                 	<td><%=order.getOrder_id()%></td>
+                 	<td><%=order.getUser_id()%></td>
+                 	<td><%=order.getOrder_date()%></td>
+                 	<td><%=order.getDelivery_status()%></td>   
+                 	<td><button>Delieverd</button></td> 
+ 				</tr>
+ 				<% } %>          	
+            </tbody>
          </table>
          <a href="#">Show All</a>
       </div>

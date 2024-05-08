@@ -24,6 +24,14 @@ public class OrderModel implements Serializable {
 	}
 
 	
+	public OrderModel(int order_id, int user_id, String order_date, String delivery_status) {
+		this.order_id = order_id;
+		this.user_id = user_id;
+		this.order_date = order_date;
+		this.delivery_status = delivery_status;
+	}
+
+
 	// getter method and setter method
 	public int getOrder_id() {
 		return order_id;
