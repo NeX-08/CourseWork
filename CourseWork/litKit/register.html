@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="../litKit/stylesheet/style.css">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">The Lit Kit</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="product.html">Product</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Category
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">CPU Processor</a></li>
+              <li><a class="dropdown-item" href="#">Motherboards</a></li>
+              <li><hr class="dropdown-divider">Gaming PC</li>
+              <li><a class="dropdown-item" href="#">Computer Case</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="aboutUs.html">About us</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-outline-light" href="cart.html">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart4" viewBox="0 0 16 16">
+                <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5M3.14 5l.5 2H5V5zM6 5v2h2V5zm3 0v2h2V5zm3 0v2h1.36l.5-2zm1.11 3H12v2h.61zM11 8H9v2h2zM8 8H6v2h2zM5 8H3.89l.5 2H5zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0m9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0"/>
+              </svg>
+            </a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-light" style="margin: 4px;" type="submit">Search</button>
+        </form>
+        <!-- profile icon -->
+        <a class="btn btn-outline-light" style="margin: 4px;" href="profile.html">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+          </svg>
+        </a>
+        <!-- log in sigh up button -->
+          <a class="nav-link btn-light" style="margin: 4px;" id="tab-login" data-mdb-pill-init href="login.html" role="tab"
+            aria-controls="pills-login" aria-selected="true">Login</a>
+        <!-- </li>
+          <a class="nav-link btn-light" style="margin: 4px;" id="tab-register" data-mdb-pill-init href="register.html" role="tab"
+            aria-controls="pills-register" aria-selected="false">Register</a>
+        </li> -->
+      </div>
+    </div>
+  </nav>
+</head>
+<body>
+  <section class="vh-100 bg-image"
+  style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');">
+  <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-12">
+          <div class="card" style="border-radius: 15px;">
+            <div class="card-body p-5">
+              <h2 class="text-uppercase text-center mb-5">Create an account</h2>
+
+              
+                <form action="submitForm.php" method="POST">  <!-- Update action to your form handler -->
+  
+                  <div class="form-outline mb-4">
+                    <label class="form-label" for="user_name">Username</label>
+                    <input type="text" id="user_name" name="user_name" class="form-control form-control-lg" required />
+                    
+                  </div>
+  
+                  <div class="row">
+                    <div class="col-md-6 form-outline mb-4">
+                      <label class="form-label" for="first_name">First Name</label>
+                      <input type="text" id="first_name" name="first_name" class="form-control form-control-lg" required />
+                      
+                    </div>
+                    <div class="col-md-6 form-outline mb-4">
+                      <label class="form-label" for="last_name">Last Name</label>
+                      <input type="text" id="last_name" name="last_name" class="form-control form-control-lg" required />
+                      
+                    </div>
+                  </div>
+  
+                  <div class="row">
+                    <div class="col-md-6 form-outline mb-4">
+                      <label class="form-label" for="dob">Date of Birth</label>
+                      <input type="date" id="dob" name="dob" class="form-control form-control-lg" required />
+                      
+                    </div>
+                    <div class="col-md-6 form-outline mb-4">
+                      <label class="form-label" for="phoneNumber">Phone Number</label>
+                      <input type="text" id="phoneNumber" name="phoneNumber" class="form-control form-control-lg" required />
+                      
+                    </div>
+                  </div>
+  
+                  <div class="form-outline mb-4">
+                    <label class="form-label" for="email">Email</label>
+                    <input type="email" id="email" name="email" class="form-control form-control-lg" required />
+                    
+                  </div>
+  
+                  <div class="form-outline mb-4">
+                    <label class="form-label" for="gender">Gender</label>
+                    <select id="gender" name="gender" class="form-control form-control-lg" required>
+                      <option value="">Select Gender</option>
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+                      <option value="other">Other</option>
+                    </select>
+                    
+                  </div>
+  
+                  <div class="row">
+                    <div class="col-md-6 form-outline mb-4">
+                      <label class="form-label" for="password">Password</label>
+                      <input type="password" id="password" name="password" class="form-control form-control-lg" required />
+                      
+                    </div>
+                    <div class="col-md-6 form-outline mb-4">
+                      <label class="form-label" for="retypePassword">Confirm Password</label>
+                      <input type="password" id="retypePassword" name="retypePassword" class="form-control form-control-lg" required />
+                     
+                    </div>
+                  </div>
+  
+                  <div class="d-flex justify-content-center">
+                    <button type="submit" class="btn btn-success btn-block btn-lg">Register</button>
+                  </div>
+  
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+</body>
+</html>
