@@ -19,3 +19,13 @@ themeToggler.addEventListener('click',()=>{
      themeToggler.querySelector('span:nth-child(1').classList.toggle('active')
      themeToggler.querySelector('span:nth-child(2').classList.toggle('active')
 })
+
+
+document.getElementById("productForm").onsubmit = function() {
+    var description = document.getElementById("productDescription").value;
+    var wordCount = description.trim().split(/\s+/).length;
+    if (wordCount > 155) {
+        alert("Product description must be 155 words or less.");
+        return false;
+    }
+};

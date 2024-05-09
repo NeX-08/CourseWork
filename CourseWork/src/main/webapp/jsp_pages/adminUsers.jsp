@@ -81,14 +81,14 @@
          <table> 
              <thead>
               <tr>
-                <th>User Name</th>
                 <th>User ID</th>
+                <th>User Name</th>
                 <th>Gender</th>
                 <th>Email</th>
                 <th>Phone Number</th>
+                <th></th>
               </tr>
              </thead>
-              <tbody>
                  <% 	
                  DatabaseController db = new DatabaseController();
          		 ArrayList<UserModel> userList = new ArrayList<>();

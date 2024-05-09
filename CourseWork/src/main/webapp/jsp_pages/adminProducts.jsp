@@ -84,7 +84,6 @@
               	<th>Product ID</th>
                 <th>Product Name</th>
                 <th>Product Price</th>
-                <th>Vendor</th>
                 <th>Category</th>
                 <th></th>
               </tr>
@@ -101,7 +100,6 @@
                  	<td><%=product.getProduct_id()%></td>
                  	<td><%=product.getProduct_name()%><td>
                  	<td><%=product.getProduct_price()%></td>
-                 	<td><%=product.getVendor()%></td>
  					<td><%=product.getCategory_id() %></td>  
  					<td><button id="delete_btn">Delete</button>    
  				</tr>

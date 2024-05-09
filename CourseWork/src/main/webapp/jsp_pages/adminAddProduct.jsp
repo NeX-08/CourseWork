@@ -1,9 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ page import = "jservlets.AdminServlet" %>
-<%@ page import = "model.OrderModel"%>
-<%@ page import = "controller.DatabaseController" %>
-<%@ page import = "java.util.ArrayList" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>UI/UX</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@48,400,0,0" />
-  <link rel="stylesheet" type="text/css" href="../stylesheets/admin.css">
+  <link rel="stylesheet" href="../stylesheets/admin.css">
 </head>
 <body>
    <div class="container">
@@ -39,7 +35,7 @@
               <span class="material-symbols-sharp">person_outline </span>
               <h3>Users</h3>
             </a>
-            <a href="#" class="active">
+            <a href="adminOrders.jsp">
               <span class="material-symbols-sharp">receipt_long </span>
               <h3>Orders</h3>
             </a>
@@ -51,7 +47,7 @@
               <span class="material-symbols-sharp">report_gmailerrorred </span>
               <h3>Reports</h3>
             </a>
-            <a href="adminAddProduct.jsp">
+            <a href="#" class="active">
               <span class="material-symbols-sharp">add </span>
               <h3>Add Product</h3>
             </a>
@@ -76,41 +72,27 @@
              <input type="date" >
            </div>
 
-      <div class="display_table">
-         <h2>Recent Orders</h2>
-         <table> 
-             <thead>
-              <tr>
-                <th>Order ID</th>
-                <th>User ID</th>
-                <th>Order Date</th>
-                <th>Status</th>
-                <th></th>
-              </tr>
-             </thead>
-              <tbody>
-                 <% 	
-                 DatabaseController db = new DatabaseController();
-         		 ArrayList<OrderModel> orderList = new ArrayList<>();
-         		 orderList = db.getOrders();
-                 
-                 for(OrderModel order : orderList) {
-                 %>
-                 <tr> 
-                 	<td><%=order.getOrder_id()%></td>
-                 	<td><%=order.getUser_id()%></td>
-                 	<td><%=order.getOrder_date()%></td>
-                 	<td><%=order.getDelivery_status()%></td>  
-                 	<% if (order.getDelivery_status().equals("Delivered")){ %> 
-                 	<td><button>Delieverd</button></td> 
-                 	<%} else{ %>
-                 	<td></td>
-                 	<%} %>
- 				</tr>
- 				<% } %>          	
-            </tbody>
-         </table>
-         <a href="#">Show All</a>
+      <div class="add_product">
+         <h2>Add Product</h2>
+<!-- action="/AddProduct.java" method="post" -->
+        <form id="productForm" action="../AddProductServlet" method="post" enctype="multipart/form-data">
+          <label for="product_name">Product Name:</label><br>
+          <input type="text" id="productName" name="product_name" required><br><br>
+  
+          <label for="product_price">Product Price:</label><br>
+          <input type="number" id="productPrice" name="product_price" required><br><br>
+  
+          <label for="product_desc">Product Description:</label><br>
+          <textarea id="product_desc" name="product_desc" rows="4" cols="50" maxlength="155" required></textarea><br><br>
+          
+          <label for="category_id">Category</label><br>
+          <input type="text" id="category_id" name="category_id" required><br><br>
+  
+          <label for="product_img">Product Image:</label><br>
+          <input type="file" id="product_img" name="product_img" required><br><br>
+  
+          <input type="submit" value="Submit">
+         </form>
       </div>
 
       </main>
@@ -134,7 +116,7 @@
    </div>
     <div class="profile">
        <div class="info">
-           <p><b>Babar</b></p>
+           <p><b>Babin</b></p>
            <p>Admin</p>
            <small class="text-muted"></small>
        </div>
@@ -152,7 +134,7 @@
             <img src="./images/profile-4.jpg" alt=""/>
          </div>
         <div class="message">
-          <p><b>Random</b>StringUtils.Message</p>
+           <p><b>Random</b>StringUtils.Message</p>
         </div>
       </div>
       <div class="update">
@@ -234,6 +216,6 @@
 
 
 
-   <script src="admin.js"></script>
+   <script src="../script/admin.js"></script>
 </body>
 </html>

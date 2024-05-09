@@ -45,7 +45,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  border: 0;
   text-decoration: none;
   list-style: none;
   appearance: none;
@@ -120,7 +119,7 @@ b{
 }
 
 .warning {
-  color: var(--clr-warnig);
+  color: var(--clr-warning);
 }
 
 
@@ -344,13 +343,11 @@ main .display_table{
    margin-top: 2rem;
 }
 
-main .display_table h2{
+main h2{
     color: var(--clr-dark);
+    margin-bottom: 0.8rem;
 }
 
-main .display_table h2{
-  margin-bottom: 0.8rem;
-}
 main .display_table table{
   background: var(--clr-white);
   width: 100%;
@@ -370,6 +367,7 @@ main table tbody td{
    border-bottom: 1px solid var(--clr-white);
    color:var(--clr-dark-variant)
 }
+
 main table tbody tr:last-child td{
    border: none;
 }
@@ -378,9 +376,8 @@ main table tbody tr:last-child td{
 main .display_table a{
   text-align: center;
   display: block;
-  margin: 1rem;
+  margin: 12px;
 }
-
 
 
 main .add_product a{
@@ -393,6 +390,46 @@ main .add_product a{
   transition: all .3s ease;
   color: var(--clr-dark);
 }
+
+
+main .add_product h2{
+  margin-top: 2rem;
+}
+
+main .add_product form{
+  background: var(--clr-white);
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 30px;
+  box-shadow: var(--box-shadow);
+  transition: all .3s ease;
+  color: var(--clr-dark);
+  
+}
+
+main .add_product input,
+input[type="number"],
+textarea,
+input[type="file"]{
+  width: 80%;
+  padding: 8px;
+  margin: 5px 0;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+main .add_product input[type="submit"]{
+  background-color: #4CAF50;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: center;
+  margin-bottom: -3rem;
+}
+
 
 
 /*********************
